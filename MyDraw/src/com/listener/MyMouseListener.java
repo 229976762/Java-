@@ -19,6 +19,9 @@ public class MyMouseListener implements MouseListener{
 	
 	private MyProcessor myProcessor = new MyProcessor();
 	
+	/**
+	 * 按钮点击事件触发
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO 自动生成的方法存根

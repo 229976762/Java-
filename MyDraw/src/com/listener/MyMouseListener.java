@@ -1,23 +1,19 @@
 package com.listener;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 
 import com.Processor.MyProcessor;
 import com.Processor.RunDraw;
 import com.javaJF.DrawGraphics;
 import com.javaJF.Graph_Draw;
 import com.javaJF.Graph_Inf;
-import com.javaJF.MyBrush_Dialog;
-import com.mysql.cj.util.StringUtils;
-import com.pojo.MyGrape;
+
 
 public class MyMouseListener implements MouseListener{
 	
@@ -36,10 +32,15 @@ public class MyMouseListener implements MouseListener{
 	        
 	        //获取Graph_Inf面板用户输入图形的属性
 	        String shape = (String)Graph_Inf.jComboBox.getSelectedItem();
-        	int x = Graph_Inf.x.getText().matches("\\s*[0-9]+\\s*")?Integer.valueOf(Graph_Inf.x.getText().trim()):0;
-        	int y = Graph_Inf.y.getText().matches("\\s*[0-9]+\\s*")?Integer.valueOf(Graph_Inf.y.getText().trim()):0;
-        	int w = Graph_Inf.w.getText().matches("\\s*[0-9]+\\s*")?Integer.valueOf(Graph_Inf.w.getText().trim()):0;
-        	int h = Graph_Inf.x.getText().matches("\\s*[0-9]+\\s*")?Integer.valueOf(Graph_Inf.h.getText().trim()):0;
+	        String xi = Graph_Inf.x.getText().trim();
+	        String yi = Graph_Inf.y.getText().trim();
+	        String wi = Graph_Inf.w.getText().trim();
+	        String hi = Graph_Inf.h.getText().trim();
+	        int x = xi.matches("[0-9]+")?Integer.valueOf(xi):0;
+	        int y = yi.matches("[0-9]+")?Integer.valueOf(yi):0;
+	        int w = wi.matches("[0-9]+")?Integer.valueOf(wi):0;
+	        int h = hi.matches("[0-9]+")?Integer.valueOf(hi):0;
+	        
 	        if(shape.equals("圆形")) 	//圆形的话只要一个半径足以，半径就看w吧
 	        	h=w;
 	        
@@ -61,7 +62,7 @@ public class MyMouseListener implements MouseListener{
 	        case "确认绘画":		
 	        	//创建线程，开画
 	        	RunDraw run = new RunDraw(x, y, w, h, shape);
-	        	new Thread(run).start();
+	        	new Thread(run,"画图线程").start();
 	        	break;
 	        	
 	        case "清空画板":		
@@ -93,6 +94,7 @@ public class MyMouseListener implements MouseListener{
 	        	break;
 	        	
 	        case "修改":
+
 	        	//获取ID输入框的内容
 	        	String Id = Graph_Inf.jtf.getText().trim();
 	        	

@@ -15,7 +15,7 @@ import com.pojo.MyGrape;
 public class Graph_SQL extends JPanel {
 
 	//数据库信息文本形式展示区
-	public static JTextArea jTextArea = new JTextArea(6,145);
+	public static JTextArea jTextArea = new JTextArea(6,130);
 
 	public Graph_SQL() {
 		

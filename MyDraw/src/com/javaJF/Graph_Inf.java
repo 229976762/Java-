@@ -84,7 +84,7 @@ public class Graph_Inf extends JPanel{
 		this.add(jB_brush);
 		jB_brush.setBorder(BorderFactory.createRaisedBevelBorder());
 		jB_brush.setFont(new Font("楷体",  1,  15));
-		jB_brush.setBackground(Color.green);
+		jB_brush.setBackground(Color.red);
 		jB_brush.addMouseListener(new MyMouseListener());	//鼠标点击监听
 		
 		//加了点空行只为好看

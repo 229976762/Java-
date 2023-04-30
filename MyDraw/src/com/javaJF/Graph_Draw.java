@@ -22,7 +22,7 @@ public class Graph_Draw extends JPanel{
 	public void paint(Graphics g) {
 		super.paint(g);	
 		gx=(Graphics2D) getGraphics();
-		gx.setColor(Color.green);	//画笔颜色绿色
+    	gx.setColor(Graph_Inf.jB_brush.getBackground()); 	//画笔颜色与颜色选择按钮一致
 	} 
 	
 }
